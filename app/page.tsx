@@ -2,31 +2,52 @@ import Image from "next/image";
 import Link from "next/link";
 import { Star, Hotel, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { VideoBackground } from "@/components/ui/video-background";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen">
-        <VideoBackground 
+        <VideoBackground
           src="https://video.wixstatic.com/video/31fb8b_ff06ce69847e4497be30ffd66b923974/480p/mp4/file.mp4"
           className="absolute inset-0 w-full h-full"
         />
-        <div className="absolute inset-0 bg-black/30" /> {/* Reduced overlay opacity for better video visibility */}
+        <div className="absolute inset-0 bg-black/30" />{" "}
+        {/* Reduced overlay opacity for better video visibility */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white space-y-6 max-w-4xl px-4">
-            <h1 className="text-4xl md:text-6xl font-bold">
-              Experience Luxury Travel Like Never Before
-            </h1>
-            <p className="text-xl md:text-2xl">
-              Discover extraordinary destinations and create unforgettable memories
-            </p>
-            <Button size="lg" asChild>
-              <Link href="/destinations">Explore Destinations</Link>
-            </Button>
+          <div className="flex flex-row justify-between text-center text-white space-y-6 max-w-4xl px-4">
+            <div className="-rotate-90 opacity-75">
+              <Link href="/destinations">VOLUTA</Link>
+              <div
+                style={{
+                  borderTop: "2px solid #fff opacity-75",
+                  marginRight: 50,
+                  height: 50,
+                }}
+              ></div>
+            </div>
+            <div className="relative ml-96">
+              <h1 className="text-4xl md:text-6xl font-bold">Santa Sofia</h1>
+              <div className="flex flex-row absolute right-0 mt-20">
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  className="h-6 opacity-75 mt-1"
+                />
+                <p className="text-xl md:text-2xl opacity-75 pl-2">Estambul</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -40,7 +61,7 @@ export default function Home() {
               Explore our hand-picked selection of extraordinary locations
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredDestinations.map((destination) => (
               <Card key={destination.title} className="overflow-hidden">
@@ -77,18 +98,19 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold">Why Choose Earthlight Travel</h2>
             <p className="mt-4 text-lg text-gray-600">
-              We create extraordinary travel experiences tailored to your desires
+              We create extraordinary travel experiences tailored to your
+              desires
             </p>
           </div>
-          
-       
         </div>
       </section>
 
       {/* Call to Action */}
       <section className="py-20 bg-primary text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
+          <h2 className="text-3xl font-bold mb-4">
+            Ready to Start Your Journey?
+          </h2>
           <p className="text-lg mb-8">
             Contact us today to plan your perfect luxury travel experience
           </p>
@@ -104,13 +126,15 @@ export default function Home() {
 const featuredDestinations = [
   {
     title: "Santorini, Greece",
-    description: "Experience the magic of white-washed buildings and stunning sunsets.",
+    description:
+      "Experience the magic of white-washed buildings and stunning sunsets.",
     image: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e",
     href: "/destinations/europe/greece/santorini",
   },
   {
     title: "Bali, Indonesia",
-    description: "Discover tropical paradise with rich culture and pristine beaches.",
+    description:
+      "Discover tropical paradise with rich culture and pristine beaches.",
     image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4",
     href: "/destinations/asia/indonesia/bali",
   },
